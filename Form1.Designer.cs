@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp9th100
+﻿namespace KiemTra
 {
     partial class Form1
     {
@@ -28,125 +28,168 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.chkShowPassword = new System.Windows.Forms.CheckBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtTendn = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblTendn = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // dataGridView1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.chkShowPassword);
-            this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.txtTendn);
-            this.panel1.Controls.Add(this.lblPassword);
-            this.panel1.Controls.Add(this.lblTendn);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(99, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(629, 342);
-            this.panel1.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(646, 493);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // btnLogin
+            // Column4
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnLogin.Location = new System.Drawing.Point(196, 266);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(234, 32);
-            this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.button1_Click);
+            this.Column4.HeaderText = "Ảnh Sản Phẩm";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
             // 
-            // chkShowPassword
+            // Column1
             // 
-            this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(197, 210);
-            this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(130, 20);
-            this.chkShowPassword.TabIndex = 5;
-            this.chkShowPassword.Text = "Hiển thị mật khẩu";
-            this.chkShowPassword.UseVisualStyleBackColor = true;
-            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.Column1.HeaderText = "Tên Sản Phẩm";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
             // 
-            // txtPassword
+            // Column2
             // 
-            this.txtPassword.Location = new System.Drawing.Point(197, 151);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(215, 22);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.Column2.HeaderText = "Giá";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
             // 
-            // txtTendn
+            // Column3
             // 
-            this.txtTendn.Location = new System.Drawing.Point(196, 95);
-            this.txtTendn.Name = "txtTendn";
-            this.txtTendn.Size = new System.Drawing.Size(216, 22);
-            this.txtTendn.TabIndex = 3;
-            this.txtTendn.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(36, 157);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(61, 16);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "Mật khẩu";
-            this.lblPassword.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // lblTendn
-            // 
-            this.lblTendn.AutoSize = true;
-            this.lblTendn.Location = new System.Drawing.Point(37, 91);
-            this.lblTendn.Name = "lblTendn";
-            this.lblTendn.Size = new System.Drawing.Size(98, 16);
-            this.lblTendn.TabIndex = 1;
-            this.lblTendn.Text = "Tên đăng nhập";
-            this.lblTendn.Click += new System.EventHandler(this.label2_Click);
+            this.Column3.HeaderText = "Số Lượng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(238, 24);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ĐĂNG NHẬP";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Size = new System.Drawing.Size(393, 23);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Danh Sách Sản Phẩm";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 553);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(257, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Thêm vào giỏ hàng";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAddToCart_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(310, 553);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(270, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Xoá Giỏ Hàng";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnRemoveFromCart_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(703, 35);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(679, 484);
+            this.listBox1.TabIndex = 4;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Red;
+            this.button3.Location = new System.Drawing.Point(1151, 553);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(196, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Thanh Toán";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnCheckout_Click);
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(714, 553);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(236, 23);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tổng Giá Trị";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1063, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Giỏ hàng";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1394, 752);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTendn;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtTendn;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.CheckBox chkShowPassword;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -1,92 +1,133 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp9th100
+namespace KiemTra
 {
     public partial class Form1 : Form
     {
+        private List<Product> products;
+        private List<Product> shoppingCart;
+
         public Form1()
         {
             InitializeComponent();
+            InitializeProducts();
+            shoppingCart = new List<Product>();
+            LoadProducts();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void InitializeProducts()
         {
-            InitializeComponent();
-            btnLogin.Enabled = false;
+            // Khởi tạo danh sách sản phẩm
+            products = new List<Product>
+            {
+                new Product("image1.png", "Son", 10000,1),
+                new Product("image2.png", "Sữa rửa mặt", 20000,2),
+                new Product("image3.png", "Dầu gội", 15000,3)
+            };
+        }
+
+        private void LoadProducts()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var product in products)
+            {
+                dataGridView1.Rows.Add(product.Image, product.Name, product.Price,product.Quantity);
+            }
+        }
+
+
+        private void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var selectedRow = dataGridView1.SelectedRows[0];
+                var productName = selectedRow.Cells[1].Value.ToString();
+                var quantity = (int)selectedRow.Cells[3].Value;
+                var existingProduct = shoppingCart.Find(p => p.Name == productName);
+
+                if (existingProduct != null)
+                {
+                    existingProduct.Quantity += quantity;
+                }
+                else
+                {
+                    var product = new Product(
+                        selectedRow.Cells[0].Value.ToString(),
+                        productName,
+                        Convert.ToDecimal(selectedRow.Cells[2].Value),
+                        quantity
+                    );
+                    shoppingCart.Add(product);
+                }
+                UpdateCart();
+            }
+        }
+
+        private void btnRemoveFromCart_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                string selectedProductName = listBox1.SelectedItem.ToString().Split('-')[0].Trim();
+                shoppingCart.RemoveAll(p => p.Name == selectedProductName);
+                UpdateCart();
+            }
+        }
+
+        private void UpdateCart()
+        {
+            listBox1.Items.Clear();
+            foreach (var product in shoppingCart)
+            {
+                listBox1.Items.Add($"{product.Name} - {product.Price:C} x {product.Quantity} = {(product.Price * product.Quantity):C}");
+            }
+            label2.Text = $"Tổng: {GetTotalPrice():C}";
+        }
+
+        private decimal GetTotalPrice()
+        {
+            decimal total = 0;
+            foreach (var product in shoppingCart)
+            {
+                total += product.Price * product.Quantity;
+            }
+            return total;
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            if (shoppingCart.Count > 0)
+            {
+                MessageBox.Show("Xác nhận đơn hàng thành công!");
+                shoppingCart.Clear();
+                UpdateCart();
+            }
+            else
+            {
+                MessageBox.Show("Giỏ hàng trống!");
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
+    }
 
-        private void label3_Click(object sender, EventArgs e)
+    public class Product
+    {
+        public string Image { get; set; }
+        public string Name { get; set; }   
+        public decimal Price { get; set; } 
+        public int Quantity { get; set; }   
+
+        public Product(string image, string name, decimal price, int quantity)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            string username = txtTendn.Text;
-
-            // Kiểm tra nếu tên đăng nhập có khoảng trắng
-            if (username.Contains(" "))
-            {
-                MessageBox.Show("Tên đăng nhập không được chứa khoảng trắng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTendn.Text = username.Replace(" ", "");  // Loại bỏ khoảng trắng
-            }
-
-            // Bật nút Đăng nhập nếu có nội dung
-            if (!string.IsNullOrWhiteSpace(username))
-            {
-                btnLogin.Enabled = true;  // Bật nút Đăng nhập
-            }
-            else
-            {
-                btnLogin.Enabled = false;  // Vô hiệu hóa nút Đăng nhập khi TextBox trống
-            }
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkShowPassword.Checked)
-            {
-                txtPassword.PasswordChar = '\0';  // Hiển thị mật khẩu
-            }
-            else
-            {
-                txtPassword.PasswordChar = '*';  // Ẩn mật khẩu
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string username = txtTendn.Text;
-            string password = txtPassword.Text;
-
-            // Kiểm tra tên đăng nhập và mật khẩu
-            if (username == "admin" && password == "12345")
-            {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Image = image;
+            Name = name;
+            Price = price;
+            Quantity = quantity;
         }
     }
 }
