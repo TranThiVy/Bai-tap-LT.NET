@@ -1,4 +1,4 @@
-﻿namespace bt6th11
+﻿namespace WindowsFormsApp9th100
 {
     partial class Form1
     {
@@ -28,198 +28,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
-            this.dgvDichVu = new System.Windows.Forms.DataGridView();
-            this.lblKhachHangTitle = new System.Windows.Forms.Label();
-            this.lblDichVuTitle = new System.Windows.Forms.Label();
-            this.cbKhachHang = new System.Windows.Forms.ComboBox();
-            this.lblChonKhachHang = new System.Windows.Forms.Label();
-            this.clbDichVu = new System.Windows.Forms.CheckedListBox();
-            this.lblChonDichVu = new System.Windows.Forms.Label();
-            this.lblTongTien = new System.Windows.Forms.Label();
-            this.btnThemKhachHang = new System.Windows.Forms.Button();
-            this.btnChinhSuaKhachHang = new System.Windows.Forms.Button();
-            this.btnXoaKhachHang = new System.Windows.Forms.Button();
-            this.btnTaoHoaDon = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDichVu)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.chkShowPassword = new System.Windows.Forms.CheckBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtTendn = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblTendn = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvKhachHang
+            // panel1
             // 
-            this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKhachHang.Location = new System.Drawing.Point(13, 56);
-            this.dgvKhachHang.Name = "dgvKhachHang";
-            this.dgvKhachHang.RowHeadersWidth = 51;
-            this.dgvKhachHang.RowTemplate.Height = 24;
-            this.dgvKhachHang.Size = new System.Drawing.Size(713, 210);
-            this.dgvKhachHang.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.chkShowPassword);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.txtTendn);
+            this.panel1.Controls.Add(this.lblPassword);
+            this.panel1.Controls.Add(this.lblTendn);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(99, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(629, 342);
+            this.panel1.TabIndex = 0;
             // 
-            // dgvDichVu
+            // btnLogin
             // 
-            this.dgvDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDichVu.Location = new System.Drawing.Point(792, 56);
-            this.dgvDichVu.Name = "dgvDichVu";
-            this.dgvDichVu.RowHeadersWidth = 51;
-            this.dgvDichVu.RowTemplate.Height = 24;
-            this.dgvDichVu.Size = new System.Drawing.Size(579, 210);
-            this.dgvDichVu.TabIndex = 1;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLogin.Location = new System.Drawing.Point(197, 254);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(102, 32);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblKhachHangTitle
+            // chkShowPassword
             // 
-            this.lblKhachHangTitle.AutoSize = true;
-            this.lblKhachHangTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhachHangTitle.Location = new System.Drawing.Point(179, 21);
-            this.lblKhachHangTitle.Name = "lblKhachHangTitle";
-            this.lblKhachHangTitle.Size = new System.Drawing.Size(249, 20);
-            this.lblKhachHangTitle.TabIndex = 2;
-            this.lblKhachHangTitle.Text = "DANH SÁCH KHÁCH HÀNG";
+            this.chkShowPassword.AutoSize = true;
+            this.chkShowPassword.Location = new System.Drawing.Point(197, 210);
+            this.chkShowPassword.Name = "chkShowPassword";
+            this.chkShowPassword.Size = new System.Drawing.Size(130, 20);
+            this.chkShowPassword.TabIndex = 5;
+            this.chkShowPassword.Text = "Hiển thị mật khẩu";
+            this.chkShowPassword.UseVisualStyleBackColor = true;
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // lblDichVuTitle
+            // txtPassword
             // 
-            this.lblDichVuTitle.AutoSize = true;
-            this.lblDichVuTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDichVuTitle.Location = new System.Drawing.Point(986, 21);
-            this.lblDichVuTitle.Name = "lblDichVuTitle";
-            this.lblDichVuTitle.Size = new System.Drawing.Size(202, 20);
-            this.lblDichVuTitle.TabIndex = 3;
-            this.lblDichVuTitle.Text = "DANH SÁCH DỊCH VỤ";
+            this.txtPassword.Location = new System.Drawing.Point(197, 151);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(215, 22);
+            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // cbKhachHang
+            // txtTendn
             // 
-            this.cbKhachHang.FormattingEnabled = true;
-            this.cbKhachHang.Location = new System.Drawing.Point(13, 342);
-            this.cbKhachHang.Name = "cbKhachHang";
-            this.cbKhachHang.Size = new System.Drawing.Size(280, 24);
-            this.cbKhachHang.TabIndex = 4;
-            this.cbKhachHang.SelectedIndexChanged += new System.EventHandler(this.cbKhachHang_SelectedIndexChanged);
+            this.txtTendn.Location = new System.Drawing.Point(196, 95);
+            this.txtTendn.Name = "txtTendn";
+            this.txtTendn.Size = new System.Drawing.Size(216, 22);
+            this.txtTendn.TabIndex = 3;
+            this.txtTendn.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // lblChonKhachHang
+            // lblPassword
             // 
-            this.lblChonKhachHang.AutoSize = true;
-            this.lblChonKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChonKhachHang.Location = new System.Drawing.Point(62, 294);
-            this.lblChonKhachHang.Name = "lblChonKhachHang";
-            this.lblChonKhachHang.Size = new System.Drawing.Size(193, 20);
-            this.lblChonKhachHang.TabIndex = 5;
-            this.lblChonKhachHang.Text = "CHỌN KHÁCH HÀNG";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(36, 157);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(61, 16);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Mật khẩu";
+            this.lblPassword.Click += new System.EventHandler(this.label3_Click);
             // 
-            // clbDichVu
+            // lblTendn
             // 
-            this.clbDichVu.FormattingEnabled = true;
-            this.clbDichVu.Location = new System.Drawing.Point(382, 342);
-            this.clbDichVu.Name = "clbDichVu";
-            this.clbDichVu.Size = new System.Drawing.Size(344, 174);
-            this.clbDichVu.TabIndex = 6;
-            this.clbDichVu.SelectedIndexChanged += new System.EventHandler(this.clbDichVu_SelectedIndexChanged);
+            this.lblTendn.AutoSize = true;
+            this.lblTendn.Location = new System.Drawing.Point(37, 91);
+            this.lblTendn.Name = "lblTendn";
+            this.lblTendn.Size = new System.Drawing.Size(98, 16);
+            this.lblTendn.TabIndex = 1;
+            this.lblTendn.Text = "Tên đăng nhập";
+            this.lblTendn.Click += new System.EventHandler(this.label2_Click);
             // 
-            // lblChonDichVu
+            // label1
             // 
-            this.lblChonDichVu.AutoSize = true;
-            this.lblChonDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChonDichVu.Location = new System.Drawing.Point(502, 294);
-            this.lblChonDichVu.Name = "lblChonDichVu";
-            this.lblChonDichVu.Size = new System.Drawing.Size(146, 20);
-            this.lblChonDichVu.TabIndex = 7;
-            this.lblChonDichVu.Text = "CHỌN DỊCH VỤ";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(238, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ĐĂNG NHẬP";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // lblTongTien
+            // button1
             // 
-            this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTien.Location = new System.Drawing.Point(868, 360);
-            this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(154, 20);
-            this.lblTongTien.TabIndex = 8;
-            this.lblTongTien.Text = "Tổng tiền: 0 VND";
-            // 
-            // btnThemKhachHang
-            // 
-            this.btnThemKhachHang.BackColor = System.Drawing.Color.Cyan;
-            this.btnThemKhachHang.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThemKhachHang.Location = new System.Drawing.Point(48, 559);
-            this.btnThemKhachHang.Name = "btnThemKhachHang";
-            this.btnThemKhachHang.Size = new System.Drawing.Size(96, 23);
-            this.btnThemKhachHang.TabIndex = 9;
-            this.btnThemKhachHang.Text = "THÊM KH";
-            this.btnThemKhachHang.UseVisualStyleBackColor = false;
-            this.btnThemKhachHang.Click += new System.EventHandler(this.btnThemKhachHang_Click);
-            // 
-            // btnChinhSuaKhachHang
-            // 
-            this.btnChinhSuaKhachHang.BackColor = System.Drawing.Color.Cyan;
-            this.btnChinhSuaKhachHang.Location = new System.Drawing.Point(203, 559);
-            this.btnChinhSuaKhachHang.Name = "btnChinhSuaKhachHang";
-            this.btnChinhSuaKhachHang.Size = new System.Drawing.Size(75, 23);
-            this.btnChinhSuaKhachHang.TabIndex = 10;
-            this.btnChinhSuaKhachHang.Text = "SỬA KH";
-            this.btnChinhSuaKhachHang.UseVisualStyleBackColor = false;
-            this.btnChinhSuaKhachHang.Click += new System.EventHandler(this.btnChinhSuaKhachHang_Click);
-            // 
-            // btnXoaKhachHang
-            // 
-            this.btnXoaKhachHang.BackColor = System.Drawing.Color.Cyan;
-            this.btnXoaKhachHang.Location = new System.Drawing.Point(506, 559);
-            this.btnXoaKhachHang.Name = "btnXoaKhachHang";
-            this.btnXoaKhachHang.Size = new System.Drawing.Size(75, 23);
-            this.btnXoaKhachHang.TabIndex = 11;
-            this.btnXoaKhachHang.Text = "XÓA KH";
-            this.btnXoaKhachHang.UseVisualStyleBackColor = false;
-            this.btnXoaKhachHang.Click += new System.EventHandler(this.btnXoaKhachHang_Click);
-            // 
-            // btnTaoHoaDon
-            // 
-            this.btnTaoHoaDon.BackColor = System.Drawing.Color.Cyan;
-            this.btnTaoHoaDon.Location = new System.Drawing.Point(353, 559);
-            this.btnTaoHoaDon.Name = "btnTaoHoaDon";
-            this.btnTaoHoaDon.Size = new System.Drawing.Size(75, 23);
-            this.btnTaoHoaDon.TabIndex = 12;
-            this.btnTaoHoaDon.Text = "TẠO HĐ";
-            this.btnTaoHoaDon.UseVisualStyleBackColor = false;
-            this.btnTaoHoaDon.Click += new System.EventHandler(this.btnTaoHoaDon_Click);
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.Location = new System.Drawing.Point(310, 254);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Thoát";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1408, 706);
-            this.Controls.Add(this.btnTaoHoaDon);
-            this.Controls.Add(this.btnXoaKhachHang);
-            this.Controls.Add(this.btnChinhSuaKhachHang);
-            this.Controls.Add(this.btnThemKhachHang);
-            this.Controls.Add(this.lblTongTien);
-            this.Controls.Add(this.lblChonDichVu);
-            this.Controls.Add(this.clbDichVu);
-            this.Controls.Add(this.lblChonKhachHang);
-            this.Controls.Add(this.cbKhachHang);
-            this.Controls.Add(this.lblDichVuTitle);
-            this.Controls.Add(this.lblKhachHangTitle);
-            this.Controls.Add(this.dgvDichVu);
-            this.Controls.Add(this.dgvKhachHang);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDichVu)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvKhachHang;
-        private System.Windows.Forms.DataGridView dgvDichVu;
-        private System.Windows.Forms.Label lblKhachHangTitle;
-        private System.Windows.Forms.Label lblDichVuTitle;
-        private System.Windows.Forms.ComboBox cbKhachHang;
-        private System.Windows.Forms.Label lblChonKhachHang;
-        private System.Windows.Forms.CheckedListBox clbDichVu;
-        private System.Windows.Forms.Label lblChonDichVu;
-        private System.Windows.Forms.Label lblTongTien;
-        private System.Windows.Forms.Button btnThemKhachHang;
-        private System.Windows.Forms.Button btnChinhSuaKhachHang;
-        private System.Windows.Forms.Button btnXoaKhachHang;
-        private System.Windows.Forms.Button btnTaoHoaDon;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTendn;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtTendn;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.CheckBox chkShowPassword;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button button1;
     }
 }
 
