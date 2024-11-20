@@ -2,96 +2,89 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp9th100
+namespace kt20th11
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+	public partial class Form1 : Form
+		
+	{
+		private string connectionString = "Data Source=NAMTV\\SQLEXPRESS01;Initial Catalog=MobileShopp;Integrated Security=True";
+		public Form1()
+		{
+			InitializeComponent();
+		}
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            InitializeComponent();
-            btnLogin.Enabled = false;
-        }
+		private void Form1_Load(object sender, EventArgs e)
+		{
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+		}
 
-        }
+		private void btnLogin_Click(object sender, EventArgs e)
+		{
+			
+			string username = txtUsername.Text.Trim();
+			string password = txtPassword.Text.Trim();
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+			
+			if (IsLoginValid(username, password))
+			{
+				
+				MainForm mainForm = new MainForm();
+				mainForm.Show();
+				this.Hide(); 
+			}
+			else
+			{
+				
+				MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		private bool IsLoginValid(string username, string password)
+		{
+			bool isValid = false;
 
-        }
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			{
+				try
+				{
+					conn.Open();
+					
+					string query = "SELECT COUNT(*) FROM NguoiDung WHERE tendangnhap = @username AND matkhau = @password";
+					SqlCommand cmd = new SqlCommand(query, conn);
+					cmd.Parameters.AddWithValue("@username", username);
+					cmd.Parameters.AddWithValue("@password", password);
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            string username = txtTendn.Text;
+					
+					int result = (int)cmd.ExecuteScalar();
 
-            // Kiểm tra nếu tên đăng nhập có khoảng trắng
-            if (username.Contains(" "))
-            {
-                MessageBox.Show("Tên đăng nhập không được chứa khoảng trắng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTendn.Text = username.Replace(" ", "");  // Loại bỏ khoảng trắng
-            }
+					
+					isValid = (result > 0);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
+				}
+			}
 
-            // Bật nút Đăng nhập nếu có nội dung
-            if (!string.IsNullOrWhiteSpace(username))
-            {
-                btnLogin.Enabled = true;  // Bật nút Đăng nhập
-            }
-            else
-            {
-                btnLogin.Enabled = false;  // Vô hiệu hóa nút Đăng nhập khi TextBox trống
-            }
+			return isValid;
+		}
 
-        }
+		private void txtUsername_TextChanged(object sender, EventArgs e)
+		{
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+		}
 
-        }
+		private void label2_Click(object sender, EventArgs e)
+		{
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkShowPassword.Checked)
-            {
-                txtPassword.PasswordChar = '\0';  // Hiển thị mật khẩu
-            }
-            else
-            {
-                txtPassword.PasswordChar = '*';  // Ẩn mật khẩu
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string username = txtTendn.Text;
-            string password = txtPassword.Text;
-
-            // Kiểm tra tên đăng nhập và mật khẩu
-            if (username == "admin" && password == "1234")
-            {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Đăng nhập thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close(); // Đóng form hiện tại
-        }
-    }
+		}
+	}
 }
+
+
